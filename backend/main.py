@@ -14,6 +14,11 @@ from datetime import datetime
 
 app = FastAPI()
 
+os.makedirs("../uploads", exist_ok=True)
+os.makedirs("../outputs", exist_ok=True)
+os.makedirs("../errors", exist_ok=True)
+os.makedirs("../chunks", exist_ok=True)
+
 Base.metadata.create_all(bind=engine)
 
 app.add_middleware(
