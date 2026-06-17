@@ -1,3 +1,6 @@
+const API_URL =
+    "https://transaction-validator-api.onrender.com";
+
 window.onload = function () {
 
     const uploadBtn =
@@ -30,7 +33,7 @@ window.onload = function () {
 
             const response =
                 await fetch(
-                    "http://127.0.0.1:8000/upload",
+                    `${API_URL}/upload`,
                     {
                         method: "POST",
                         body: formData
@@ -89,7 +92,7 @@ async function loadUploadHistory() {
 
         const response =
             await fetch(
-                "http://127.0.0.1:8000/uploads"
+                `${API_URL}/uploads`
             );
 
         const data =
@@ -131,7 +134,7 @@ async function loadChunks() {
 
         const response =
             await fetch(
-                "http://127.0.0.1:8000/chunks"
+                `${API_URL}/chunks`
             );
 
         const chunks =
@@ -149,7 +152,7 @@ async function loadChunks() {
             container.innerHTML += `
                 <a
                     class="chunk-btn"
-                    href="http://127.0.0.1:8000/download/chunk/${chunk}"
+                    href="${API_URL}/download/chunk/${chunk}"
                     target="_blank"
                 >
                     Download ${chunk}
