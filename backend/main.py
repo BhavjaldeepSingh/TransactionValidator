@@ -396,3 +396,16 @@ def download_chunk(filename: str):
         filename=filename,
         media_type="text/csv"
     )
+@app.delete("/uploads")
+def delete_uploads():
+
+    db = SessionLocal()
+
+    db.query(Upload).delete()
+
+    db.commit()
+    db.close()
+
+    return {
+        "message": "Upload history deleted"
+    }
