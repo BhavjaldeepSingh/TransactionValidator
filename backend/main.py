@@ -14,10 +14,10 @@ from datetime import datetime
 
 app = FastAPI()
 
-os.makedirs("../uploads", exist_ok=True)
-os.makedirs("../outputs", exist_ok=True)
-os.makedirs("../errors", exist_ok=True)
-os.makedirs("../chunks", exist_ok=True)
+os.makedirs("uploads", exist_ok=True)
+os.makedirs("outputs", exist_ok=True)
+os.makedirs("errors", exist_ok=True)
+os.makedirs("chunks", exist_ok=True)
 
 Base.metadata.create_all(bind=engine)
 
@@ -44,7 +44,7 @@ async def upload_file(file: UploadFile = File(...)):
     contents = await file.read()
 
     # Save uploaded file
-    file_path = f"../uploads/{file.filename}"
+    file_path = f"uploads/{file.filename}"
 
     with open(file_path, "wb") as f:
         f.write(contents)
@@ -250,8 +250,8 @@ async def upload_file(file: UploadFile = File(...)):
     )
 
     # File paths
-    clean_path = "../outputs/clean_transactions.csv"
-    error_path = "../errors/validation_errors.csv"
+    clean_path = "outputs/clean_transactions.csv"
+    error_path = "errors/validation_errors.csv"
 
     # Remove old files
     if os.path.exists(clean_path):
@@ -271,7 +271,7 @@ async def upload_file(file: UploadFile = File(...)):
         index=False
     )
 
-    chunk_folder = "../chunks"
+    chunk_folder = "chunks"
 
     if not os.path.exists(chunk_folder):
         os.makedirs(chunk_folder)
@@ -298,7 +298,7 @@ async def upload_file(file: UploadFile = File(...)):
         chunk_number = (i // chunk_size) + 1
 
         chunk_df.to_csv(
-            f"../chunks/chunk_{chunk_number}.csv",
+            f"chunks/chunk_{chunk_number}.csv",
             index=False
         )
 
@@ -334,7 +334,7 @@ async def upload_file(file: UploadFile = File(...)):
 @app.get("/download/clean")
 def download_clean():
     return FileResponse(
-        "../outputs/clean_transactions.csv",
+        "outputs/clean_transactions.csv",
         filename="clean_transactions.csv"
     )
 
@@ -342,7 +342,7 @@ def download_clean():
 @app.get("/download/error")
 def download_error():
     return FileResponse(
-        "../errors/validation_errors.csv",
+        "errors/validation_errors.csv",
         filename="validation_errors.csv"
     )
 
@@ -373,7 +373,7 @@ def get_chunks():
 
     import os
 
-    chunk_folder = "../chunks"
+    chunk_folder = "chunks"
 
     if not os.path.exists(chunk_folder):
         return []
@@ -389,7 +389,7 @@ def get_chunks():
 @app.get("/download/chunk/{filename}")
 def download_chunk(filename: str):
 
-    file_path = f"../chunks/{filename}"
+    file_path = f"chunks/{filename}"
 
     return FileResponse(
         path=file_path,
