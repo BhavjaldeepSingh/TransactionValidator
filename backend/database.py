@@ -2,12 +2,13 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import declarative_base
 
-DATABASE_URL = (
-    "mysql+pymysql://root:%40BHAVI%408706@localhost/transaction_validator"
-)
+DATABASE_URL = "sqlite:///./transaction_validator.db"
 
 engine = create_engine(
-    DATABASE_URL
+    DATABASE_URL,
+    connect_args={
+        "check_same_thread": False
+    }
 )
 
 SessionLocal = sessionmaker(
