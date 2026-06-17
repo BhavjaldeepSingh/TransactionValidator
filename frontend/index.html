@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Validation Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Transaction Validation Platform</h1>
+
+        <p>Upload a CSV file to validate transaction data.</p>
+
+        <input
+            type="file"
+            id="csvFile"
+            accept=".csv"
+        >
+
+        <button
+            id="uploadBtn"
+            type="button"
+        >
+            Upload & Validate
+        </button>
+
+        <div
+            class="results"
+            id="resultsSection"
+        >
+            <h2>Validation Results</h2>
+
+            <p>
+                <strong>Total Rows:</strong>
+                <span id="totalRows">0</span>
+            </p>
+
+            <p>
+                <strong>Valid Rows:</strong>
+                <span id="validRows">0</span>
+            </p>
+
+            <p>
+                <strong>Invalid Rows:</strong>
+                <span id="invalidRows">0</span>
+            </p>
+        </div>
+
+        <div class="downloads">
+
+            <a
+                href="http://127.0.0.1:8000/download/clean"
+                target="_blank"
+            >
+                Download Clean File
+            </a>
+
+            <a
+                href="http://127.0.0.1:8000/download/error"
+                target="_blank"
+            >
+                Download Error File
+            </a>
+
+            <div class="chunks">
+
+    <h2>Chunk Files</h2>
+
+    <div id="chunkButtons">
+
+    </div>
+
+</div>
+        </div>
+
+        <div class="history">
+
+            <h2>Upload History</h2>
+
+            <table id="historyTable">
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Filename</th>
+                        <th>Total Rows</th>
+                        <th>Valid Rows</th>
+                        <th>Invalid Rows</th>
+                        <th>Uploaded At</th>
+                    </tr>
+                </thead>
+
+                <tbody id="historyBody">
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+</html>

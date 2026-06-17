@@ -1,0 +1,204 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fc;
+    padding: 40px;
+}
+
+/* Main Container */
+.container {
+    background-color: white;
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+/* Description */
+.container p {
+    text-align: center;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* File Input */
+input[type="file"] {
+    display: block;
+    margin: 20px auto;
+}
+
+/* Upload Button */
+button {
+    display: block;
+    margin: auto;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Results Section */
+.results {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    margin-top: 40px;
+    padding: 25px;
+    background-color: #f8f9fa;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+}
+
+.results h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #2c3e50;
+}
+
+.results p {
+    font-size: 18px;
+    margin: 15px 0;
+    text-align: left;
+    color: #333;
+}
+
+/* Numbers */
+#totalRows,
+#validRows,
+#invalidRows {
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Download Buttons */
+.downloads {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.downloads a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin: 10px;
+    transition: 0.3s;
+}
+
+.downloads a:hover {
+    background-color: #1e7e34;
+}
+
+/* History Section */
+.history {
+    margin-top: 50px;
+}
+
+.history h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    margin-top: 20px;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #e9f3ff;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    body {
+        padding: 20px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .downloads a {
+        display: block;
+        width: 250px;
+        margin: 15px auto;
+    }
+}
+
+.chunks {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.chunks h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.chunk-btn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #17a2b8;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin: 10px;
+    transition: 0.3s;
+}
+
+.chunk-btn:hover {
+    background-color: #117a8b;
+}
