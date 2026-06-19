@@ -26,7 +26,40 @@
         >
             Upload & Validate
         </button>
+<div class="file-format-note">
+    <h3>📌 Supported File Format</h3>
 
+    <p>
+        This platform accepts only <strong>.csv</strong> files containing the
+        following columns exactly as specified:
+    </p>
+
+    <ul>
+        <li>order_id</li>
+        <li>order_date</li>
+        <li>customer_name</li>
+        <li>phone_number</li>
+        <li>country</li>
+        <li>product_id</li>
+        <li>product_name</li>
+        <li>quantity</li>
+        <li>unit_price</li>
+        <li>payment_mode</li>
+        <li>payment_status</li>
+        <li>amount_paid</li>
+        <li>transaction_id</li>
+    </ul>
+
+    <p><strong>Please ensure that:</strong></p>
+
+    <ul>
+        <li>The uploaded file is in <strong>.csv</strong> format.</li>
+        <li>Column names match exactly, including underscores and spelling.</li>
+        <li>Missing, extra, or incorrectly named columns may cause the file to be rejected.</li>
+        <li>Files with a different schema are currently not supported.</li>
+        <li>The first upload after inactivity may take around <strong>20–30 seconds</strong> as the backend service hosted on Render needs to wake up.</li>
+    </ul>
+</div>
         <div
             class="results"
             id="resultsSection"
